@@ -33,9 +33,9 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 clean:
-	make -C $(MLX_DIR)
-	make -C $(LIB_DIR)
-	make -C $(GNL_DIR)
+	make -C $(MLX_DIR) clean
+	make -C $(LIB_DIR) clean
+	make -C $(GNL_DIR) clean
 	rm -f $(OBJS)
 
 fclean: clean
