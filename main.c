@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 20:33:38 by naharagu          #+#    #+#             */
-/*   Updated: 2022/11/15 19:46:12 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/11/15 21:47:14 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,14 @@ int	main(int argc, char ** argv)
 
 	if (argc != 2)
 		put_error_and_exit(1);
-	// validate_input(argv[1]);
 	info = init_info(info);
 	convert_map(info, argv[1]);
-	info->mlx = mlx_init();
-	info->mlx_win = mlx_new_window(info->mlx, info->map->height * IMAGE_SIZE, info->map->width * IMAGE_SIZE, "so_long");
+	validate_map(info);
 	get_image(info);
+	// get_image(info);
+	info->mlx = mlx_init();
+	printf("height: %d\n", info->map->height);
+	info->mlx_win = mlx_new_window(info->mlx, info->map->height * IMAGE_SIZE, info->map->width * IMAGE_SIZE, "so_long");
 	so_long(info);
 	return (0);
 }

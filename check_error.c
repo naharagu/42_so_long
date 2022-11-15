@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:36:25 by naharagu          #+#    #+#             */
-/*   Updated: 2022/11/15 20:46:33 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/11/15 21:13:35 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	validate_map_element(char *str)
 	{
 		if (str[i] != '1' && str[i] != '0' && str[i] != 'C' && \
 			str[i] != 'E' && str[i] != 'P')
-			put_error_and_exit(2);
+			put_error_and_exit(3);
 		i++;
 	}
 	return (0);
@@ -37,7 +37,7 @@ int	up_and_down_frame(t_info *info)
 	while (info->map->map[x][y] != '\0')
 	{
 		if (info->map->map[x][y] != '1')
-			put_error_and_exit(2);
+			put_error_and_exit(3);
 		y++;
 	}
 	y = 0;
@@ -45,7 +45,7 @@ int	up_and_down_frame(t_info *info)
 	while (info->map->map[x][y] != '\0')
 	{
 		if (info->map->map[x][y] != '1')
-			put_error_and_exit(2);
+			put_error_and_exit(3);
 		y++;
 	}
 	return (0);
@@ -65,7 +65,7 @@ int	side_frame(t_info *info)
 			if (y == 0 || y == info->map->width - 1)
 			{
 				if (info->map->map[x][y] != '1')
-					put_error_and_exit(2);
+					put_error_and_exit(3);
 			}
 			y++;
 		}
@@ -84,7 +84,7 @@ int	compare_length(t_info *info)
 	while (i < info->map->width)
 	{
 		if (len != ft_strlen(info->map->map[i]))
-			put_error_and_exit(2);
+			put_error_and_exit(3);
 		i++;
 	}
 	info->map->height = len;
@@ -96,9 +96,10 @@ int	validate_map(t_info *info)
 	if (info->map->cnt_collect < 1 || \
 		info->map->cnt_player != 1 || \
 		info->map->cnt_exit != 1)
-		put_error_and_exit(2);
+		put_error_and_exit(3);
 	compare_length(info);
 	up_and_down_frame(info);
-	side_frame(info);
+	// side_frame(info);
+	// ft_putstr_fd("hi!\n", 1);
 	return (0);
 }

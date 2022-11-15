@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 14:06:42 by naharagu          #+#    #+#             */
-/*   Updated: 2022/11/15 19:56:43 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/11/15 23:19:39 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 void	select_image(t_info *info, char c)
 {
+	printf("img is: %s\n", info->img->path[c]);
+	int height;
+	int	width;
+
 	info->img->img = mlx_xpm_file_to_image(info->mlx, info->img->path[c], \
-		&info->img->height, &info->img->width);
+		&height, &width);
 	if (info->img->img == NULL)
 		put_error_and_exit(4);
 }
