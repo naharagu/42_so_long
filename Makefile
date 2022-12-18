@@ -28,7 +28,7 @@ $(NAME): $(OBJS)
 	make -C $(MLX_DIR)
 	make -C $(LIB_DIR)
 	make -C $(GNL_DIR)
-	$(CC) $(C_FLAGS) $(OBJS)  -o $(NAME) $(MLX_FLAGS) $(LIB) $(GNL)
+	$(CC) $(C_FLAGS) $(OBJS) -o $(NAME) $(MLX_FLAGS) $(LIB) $(GNL)
 
 all: $(NAME)
 

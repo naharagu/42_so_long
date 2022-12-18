@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 09:28:05 by naharagu          #+#    #+#             */
-/*   Updated: 2022/11/15 21:49:05 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/11/15 23:44:11 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	update_position(t_info *info, size_t x, size_t y)
 	else
 		return ;
 	put_image(info, info->player->x_pos, info->player->y_pos);
-	mlx_destroy_image(info->mlx, info->img->img);
+	mlx_destroy_image(info->mlx, info->mlx_img);
 	select_image(info, '0');
 	put_image(info, x, y);
-	mlx_destroy_image(info->mlx, info->img->img);
+	mlx_destroy_image(info->mlx, info->mlx_img);
 	info->map->map[x][y] = '0';
 	if (info->map->map[info->player->x_pos][info->player->y_pos] == 'C')
 		info->map->cnt_collect--;

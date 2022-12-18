@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 22:39:02 by naharagu          #+#    #+#             */
-/*   Updated: 2022/11/15 20:45:23 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/11/15 23:47:03 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,13 @@
 # define M_WIN_RESIZE 2097152
 # define M_WIN_CLOSE 131072
 
-# define IMAGE_SIZE 16
+# define IMAGE_SIZE 32
 
 # define W 119
 # define S 115
 # define A 97
 # define D 100
 # define ESC 65307
-
-typedef struct s_img
-{
-	char **path;
-	void *img;
-	int	height;
-	int	width;
-}				t_img;
 
 typedef struct s_map
 {
@@ -68,7 +60,8 @@ typedef struct s_info
 	size_t	cnt_move;
 	t_player *player;
 	t_map		*map;
-	t_img		*img;
+	char ** img_path;
+	void 	*mlx_img;
 }				t_info;
 
 int	control_player(int key, t_info *info);

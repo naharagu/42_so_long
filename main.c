@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 20:33:38 by naharagu          #+#    #+#             */
-/*   Updated: 2022/11/15 21:47:14 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/11/15 23:40:34 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,9 @@ t_info *init_info(t_info *info)
 {
 	info = malloc(sizeof(t_info));
 	info->map = malloc(sizeof(t_map));
-	info->img = malloc(sizeof(t_img));
 	info->player = malloc(sizeof(t_player));
-	info->img->path = malloc(sizeof(char **) * 5);
-	if (!info || !info->map || !info->img || !info->player || !info->img->path)
+	info->img_path = malloc(sizeof(char **) * 5);
+	if (!info || !info->map || !info->player || !info->img_path)
 		put_error_and_exit(9);
 	info->cnt_move = 0;
 	info->player->x_pos = 0;
@@ -55,11 +54,11 @@ t_info *init_info(t_info *info)
 	info->map->cnt_exit = 0;
 	info->map->width = 0;
 	info->map->height= 0;
-	info->img->path['1'] = "assets/wall.xpm";
-	info->img->path['0'] = "assets/floor.xpm";
-	info->img->path['P'] = "assets/player.xpm";
-	info->img->path['E'] = "assets/exit.xpm";
-	info->img->path['C'] = "assets/collect.xpm";
+	info->img_path['1'] = "assets/wall.xpm";
+	info->img_path['0'] = "assets/floor.xpm";
+	info->img_path['P'] = "assets/player.xpm";
+	info->img_path['E'] = "assets/exit.xpm";
+	info->img_path['C'] = "assets/collect.xpm";
 	return (info);
 }
 
