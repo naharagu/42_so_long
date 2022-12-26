@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:57:33 by naharagu          #+#    #+#             */
-/*   Updated: 2022/11/15 20:46:14 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/26 16:00:44 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*get_line_in_map(t_info *info, char *file_path)
 		str = ft_strjoin(str, line);
 		free(tmp);
 		free(line);
-		info->map->width++;
+		info->map->height++;
 	}
 	return (str);
 }

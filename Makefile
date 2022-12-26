@@ -1,5 +1,6 @@
 CC			=	gcc
 C_FLAGS 	=	-Wall -Werror -Wextra -g -fsanitize=address
+# C_FLAGS 	=	-Wall -Werror -Wextra
 MLX_DIR		= ./minilibx-linux
 LIB_DIR		= ./libft
 GNL_DIR		= ./get_next_line
@@ -7,7 +8,8 @@ SRCS		= 	main.c \
 				check_error.c \
 				hook_helper.c \
 				convert_map.c \
-				image.c
+				image.c \
+				error.c
 
 NAME	=	so_long
 

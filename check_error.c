@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:36:25 by naharagu          #+#    #+#             */
-/*   Updated: 2022/11/15 21:13:35 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/26 16:04:30 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	up_and_down_frame(t_info *info)
 		y++;
 	}
 	y = 0;
-	x = info->map->width - 1;
+	x = info->map->height - 1;
 	while (info->map->map[x][y] != '\0')
 	{
 		if (info->map->map[x][y] != '1')
@@ -57,10 +57,10 @@ int	side_frame(t_info *info)
 	size_t	y;
 
 	x = 1;
-	while (x < info->map->width - 1)
+	while (x < info->map->height - 1)
 	{
 		y = 0;
-		while (y < info->map->height)
+		while (y < info->map->width)
 		{
 			if (y == 0 || y == info->map->width - 1)
 			{
@@ -81,13 +81,13 @@ int	compare_length(t_info *info)
 
 	i = 0;
 	len = ft_strlen(info->map->map[i]);
-	while (i < info->map->width)
+	while (i < info->map->height)
 	{
 		if (len != ft_strlen(info->map->map[i]))
 			put_error_and_exit(3);
 		i++;
 	}
-	info->map->height = len;
+	info->map->width = len;
 	return (0);
 }
 
