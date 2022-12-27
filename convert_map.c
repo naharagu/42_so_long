@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:57:33 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 17:33:03 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/27 18:48:29 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	count_element(t_info *info, char *str)
 	{
 		if (str[i] == 'C')
 			info->map->cnt_collect++;
-		else if (str[i] == 'E')
-			info->map->cnt_player++;
 		else if (str[i] == 'P')
+			info->map->cnt_player++;
+		else if (str[i] == 'E')
 			info->map->cnt_exit++;
 		i++;
 	}
@@ -81,6 +81,6 @@ void	convert_map(t_info *info, char *file_path)
 	count_element(info, str);
 	ret = ft_split(str, '\n');
 	info->map->map = ret;
-	// printf("C: %d, E: %d, P: %d\n", info->map->cnt_collect, info->map->cnt_exit, info->map->cnt_player);
+	printf("C: %d, E: %d, P: %d\n", info->map->cnt_collect, info->map->cnt_exit, info->map->cnt_player);
 	free(str);
 }

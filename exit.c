@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:06:57 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 17:19:21 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/27 19:14:33 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ void	put_error_and_exit(int error_num)
 
 void	free_all(t_info *info)
 {
+	int i;
+
+	i = 0;
+	while (info->map->map[i])
+	{
+		free(info->map->map[i]);
+		i++;
+	}
 	free(info->map);
 	free(info->player);
 	free(info->img_path);

@@ -1,16 +1,15 @@
 CC			=	gcc
 C_FLAGS 	=	-Wall -Werror -Wextra -g -fsanitize=address
-# C_FLAGS 	=	-Wall -Werror -Wextra
-MLX_DIR		= ./minilibx-linux
-LIB_DIR		= ./libft
-GNL_DIR		= ./get_next_line
+MLX_DIR		= 	./minilibx-linux
+LIB_DIR		= 	./libft
+GNL_DIR		= 	./get_next_line
 SRCS		= 	main.c \
 				init.c \
-				check_error.c \
-				hook_helper.c \
+				validate_map.c \
 				convert_map.c \
 				image.c \
-				error.c
+				control_player.c \
+				exit.c
 
 NAME	=	so_long
 
@@ -23,7 +22,6 @@ ifeq ($(os), Darwin)
 else
 	MLX_FLAGS = minilibx-linux/libmlx.a -lXext -lX11 -lm
 endif
-#MLX_FLAGS	=	-L/usr/X11/lib -lmlx -lXext -lX11
 LIB		= ./libft/libft.a
 GNL	= ./get_next_line/get_next_line.a
 

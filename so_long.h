@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 22:39:02 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 17:29:14 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/27 18:46:36 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void			select_image(t_info *info, char c);
 int				print_map(t_info *info);
 void			put_image(t_info *info, int x, int y);
 int				validate_map(t_info *info);
+int				validate_path(t_info *info);
 void			free_all(t_info *info);
 
 #endif
