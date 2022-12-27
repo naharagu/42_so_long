@@ -16,12 +16,21 @@ void	move_position(t_info *info, int x, int y)
 {
 	// if (info->map->cnt_collect == 0)
 	// 	info->map->map[info->player->x_exit][info->player->y_exit] = 'O';
-	printf("now: x %d, y %d\n", info->player->x_pos, info->player->y_pos);
-	printf("next is %c\n", info->map->map[info->player->x_pos + x][info->player->y_pos + y]);
+	// printf("now: x %d, y %d\n", info->player->x_pos, info->player->y_pos);
+	// printf("next is %c\n", info->map->map[info->player->x_pos + x][info->player->y_pos + y]);
 	if (info->map->map[info->player->x_pos + x][info->player->y_pos + y] == '1')
 		return ;
 	if (info->map->map[info->player->x_pos + x][info->player->y_pos + y] == 'C')
 		info->map->cnt_collect--;
+	if (info->map->map[info->player->x_pos + x][info->player->y_pos + y] == 'E')
+	{
+		if (info->map->cnt_collect == 0)
+		{
+			ft_putstr_fd("!GOAL!\n", 1);
+			mlx_loop_end(info->mlx);
+		}
+		return ;
+	}
 	info->map->map[info->player->x_pos][info->player->y_pos] = '0';
 	select_image(info, '0');
 	put_image(info, info->player->y_pos, info->player->x_pos);
@@ -30,31 +39,14 @@ void	move_position(t_info *info, int x, int y)
 	info->map->map[info->player->x_pos][info->player->y_pos] = 'P';
 	select_image(info, 'P');
 	put_image(info, info->player->y_pos, info->player->x_pos);
+	info->cnt_move++;
+	ft_putnbr_fd(info->cnt_move, 1);
+	ft_putchar_fd('\n', 1);
 }
-
-// int	can_move(t_info *info, char next_position)
-// {
-// 	printf("canmove: x is %d, y is %d\n", info->player->x_pos, info->player->y_pos);
-// 	printf("next is %c\n", next_position);
-// 	if (next_position == 'E')
-// 	{
-// 		if (info->map->cnt_collect == 0)
-// 			mlx_loop_end(info->mlx);
-// 		return (0);
-// 	}
-// 	if (next_position != '1')
-// 	{
-// 		info->cnt_move++;
-// 		ft_putnbr_fd(info->cnt_move, 1);
-// 		ft_putchar_fd('\n', 1);
-// 		return (1);
-// 	}
-// 	return (0);
-// }
 
 int	control_player(int key, t_info *info)
 {
-	printf("\nkey is %d\n", key);
+	// printf("\nkey is %d\n", key);
 
 	if (key == ESC)
 		mlx_loop_end(info->mlx);
