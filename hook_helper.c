@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 09:28:05 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/26 17:27:16by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/27 17:16:46 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 void	move_position(t_info *info, int x, int y)
 {
-	// if (info->map->cnt_collect == 0)
-	// 	info->map->map[info->player->x_exit][info->player->y_exit] = 'O';
-	// printf("now: x %d, y %d\n", info->player->x_pos, info->player->y_pos);
-	// printf("next is %c\n", info->map->map[info->player->x_pos + x][info->player->y_pos + y]);
 	if (info->map->map[info->player->x_pos + x][info->player->y_pos + y] == '1')
 		return ;
 	if (info->map->map[info->player->x_pos + x][info->player->y_pos + y] == 'C')
@@ -46,8 +42,6 @@ void	move_position(t_info *info, int x, int y)
 
 int	control_player(int key, t_info *info)
 {
-	// printf("\nkey is %d\n", key);
-
 	if (key == ESC)
 		mlx_loop_end(info->mlx);
 	if (key == W || key == UP)

@@ -6,31 +6,16 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:36:25 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 12:32:13 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/27 17:33:16 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	validate_map_element(char *str)
+int	validate_row_frame(t_info *info)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\n' && str[i] != '\0')
-	{
-		if (str[i] != '1' && str[i] != '0' && str[i] != 'C' && \
-			str[i] != 'E' && str[i] != 'P')
-			put_error_and_exit(3);
-		i++;
-	}
-	return (0);
-}
-
-int	up_and_down_frame(t_info *info)
-{
-	size_t	x;
-	size_t	y;
+	int	x;
+	int	y;
 
 	x = 0;
 	y = 0;
@@ -51,10 +36,10 @@ int	up_and_down_frame(t_info *info)
 	return (0);
 }
 
-int	side_frame(t_info *info)
+int	validate_side_frame(t_info *info)
 {
-	size_t	x;
-	size_t	y;
+	int	x;
+	int	y;
 
 	x = 1;
 	while (x < info->map->height - 1)
@@ -74,10 +59,10 @@ int	side_frame(t_info *info)
 	return (0);
 }
 
-int	compare_length(t_info *info)
+int	validate_length(t_info *info)
 {
-	size_t	i;
-	size_t	len;
+	int	i;
+	int	len;
 
 	i = 0;
 	len = ft_strlen(info->map->map[i]);
@@ -97,9 +82,8 @@ int	validate_map(t_info *info)
 		info->map->cnt_player != 1 || \
 		info->map->cnt_exit != 1)
 		put_error_and_exit(3);
-	compare_length(info);
-	up_and_down_frame(info);
-	// side_frame(info);
-	// ft_putstr_fd("hi!\n", 1);
+	validate_length(info);
+	validate_row_frame(info);
+	validate_side_frame(info);
 	return (0);
 }

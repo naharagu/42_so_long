@@ -6,11 +6,26 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:57:33 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/26 16:00:44 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/27 17:33:03 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	validate_map_element(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\n' && str[i] != '\0')
+	{
+		if (str[i] != '1' && str[i] != '0' && str[i] != 'C' && \
+			str[i] != 'E' && str[i] != 'P')
+			put_error_and_exit(3);
+		i++;
+	}
+	return ;
+}
 
 void	count_element(t_info *info, char *str)
 {
@@ -66,7 +81,6 @@ void	convert_map(t_info *info, char *file_path)
 	count_element(info, str);
 	ret = ft_split(str, '\n');
 	info->map->map = ret;
-	// printf("map is %s\n", info->map->map[0]);
-	printf("C: %d, E: %d, P: %d\n", info->map->cnt_collect, info->map->cnt_exit, info->map->cnt_player);
+	// printf("C: %d, E: %d, P: %d\n", info->map->cnt_collect, info->map->cnt_exit, info->map->cnt_player);
 	free(str);
 }

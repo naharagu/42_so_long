@@ -6,27 +6,23 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 22:39:02 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 15:40:31 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/27 17:29:14 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "libft/libft.h"
-# include "libft/ft_printf.h"
 # include "get_next_line/get_next_line_bonus.h"
+# include "libft/ft_printf.h"
+# include "libft/libft.h"
 # include "minilibx-linux/mlx.h"
-# include <stdio.h>
 # include <fcntl.h>
+# include <stdio.h>
 
 # define E_KEY_PRESS 2
 # define E_WIN_RESIZE 9
 # define E_WIN_CLOSE 17
-
-# define M_KEY_PRESS 1
-# define M_WIN_RESIZE 2097152
-# define M_WIN_CLOSE 131072
 
 # define IMAGE_SIZE 32
 
@@ -42,42 +38,41 @@
 
 typedef struct s_map
 {
-	char **map;
-	int	cnt_collect;
-	int	cnt_player;
-	int	cnt_exit;
-	int	height;
-	int	width;
+	char		**map;
+	int			cnt_collect;
+	int			cnt_player;
+	int			cnt_exit;
+	int			height;
+	int			width;
 }				t_map;
 
 typedef struct s_player
 {
-	int	x_pos;
-	int	y_pos;
-	int	x_exit;
-	int	y_exit;
+	int			x_pos;
+	int			y_pos;
+	int			x_exit;
+	int			y_exit;
 }				t_player;
 
 typedef struct s_info
 {
-	void	*mlx;
-	void	*mlx_win;
-	size_t	cnt_move;
-	t_player *player;
+	void		*mlx;
+	void		*mlx_win;
+	size_t		cnt_move;
+	t_player	*player;
 	t_map		*map;
-	char ** img_path;
-	void 	*mlx_img;
+	char		**img_path;
+	void		*mlx_img;
 }				t_info;
 
-t_info *init_info(t_info *info);
-int	control_player(int key, t_info *info);
-void	put_error_and_exit(int error_num);
-void	convert_map(t_info *info, char *file_path);
-void	select_image(t_info *info, char c);
-int	print_map(t_info *info);
-void	put_image(t_info *info, int x, int y);
-int	validate_map(t_info *info);
-int	validate_map_element(char *str);
-void	free_all(t_info *info, int i);
+t_info			*init_info(t_info *info);
+int				control_player(int key, t_info *info);
+void			put_error_and_exit(int error_num);
+void			convert_map(t_info *info, char *file_path);
+void			select_image(t_info *info, char c);
+int				print_map(t_info *info);
+void			put_image(t_info *info, int x, int y);
+int				validate_map(t_info *info);
+void			free_all(t_info *info);
 
 #endif

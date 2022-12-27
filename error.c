@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:06:57 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 15:25:59 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/27 17:19:21 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	put_error_and_exit(int error_num)
 	exit(EXIT_FAILURE);
 }
 
-void	free_all(t_info *info, int i)
+void	free_all(t_info *info)
 {
-	// while (i > 0)
-	// 	free(map[--i]);
-	// free(map);
+	free(info->map);
+	free(info->player);
+	free(info->img_path);
 	mlx_clear_window(info->mlx, info->mlx_win);
 	mlx_destroy_window(info->mlx, info->mlx_win);
 	mlx_destroy_display(info->mlx);
