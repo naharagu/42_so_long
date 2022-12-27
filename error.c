@@ -26,7 +26,6 @@ void	put_error_and_exit(int error_num)
 		ft_putstr_fd("cannot open file", 2);
 	else if (error_num == 9)
 		ft_putstr_fd("malloc failed", 2);
-
 	exit(EXIT_FAILURE);
 }
 

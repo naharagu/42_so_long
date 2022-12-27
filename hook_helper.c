@@ -48,35 +48,16 @@ int	can_move(t_info *info, char next_position)
 	return (0);
 }
 
-// int	control_player(int key, t_info *info)
-// {
-// 	if (key == ESC)
-// 		mlx_loop_end(info->mlx);
-// 	if (key == W)
-// 		info->player->y_pos -= 1;
-// 	else if (key == S)
-// 		info->player->y_pos += 1;
-// 	else if (key == A)
-// 		info->player->x_pos -= 1;
-// 	else if (key == D)
-// 		info->player->x_pos += 1;
-// 	else
-// 		return (0);
-// }
-
 int	control_player(int key, t_info *info)
 {
 	int x_tmp;
 	int	y_tmp;
-
-	printf("start cl: x %d, y %d\n", info->player->x_pos, info->player->y_pos);
 
 	x_tmp = info->player->x_pos;
 	y_tmp = info->player->y_pos;
 
 	printf("key is %d\n", key);
 	printf("xtmpis %d, ytmp is %d\n", x_tmp, y_tmp);
-
 	if (key == ESC)
 		mlx_loop_end(info->mlx);
 	if (key == W)
@@ -89,8 +70,6 @@ int	control_player(int key, t_info *info)
 		info->player->x_pos += 1;
 	else
 		return (0);
-	// printf("x is %zu, y is %zu\n", x_tmp, y_tmp);
-	printf("tmp2 xpos %d, ypos is %d\n", info->player->x_pos, info->player->y_pos);
 	if (can_move(info, info->map->map[info->player->x_pos][info->player->y_pos]))
 		update_position(info, x_tmp, y_tmp);
 	else
