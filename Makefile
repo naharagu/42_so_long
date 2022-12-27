@@ -6,6 +6,7 @@ GNL_DIR		= 	./get_next_line
 SRCS		= 	main.c \
 				init.c \
 				validate_map.c \
+				validate_path.c \
 				convert_map.c \
 				image.c \
 				control_player.c \

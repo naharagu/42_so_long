@@ -6,20 +6,18 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:36:25 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 19:19:18 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/27 20:48:35 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char**	find_e_p(t_info *info)
+char**	copy_map(t_info *info, char **tmp)
 {
 	int	x;
 	int	y;
-	char ** tmp;
 
 	x = 0;
-	tmp = malloc(sizeof(char**));
 	while (x < info->map->height)
 	{
 		y = 0;
@@ -44,35 +42,86 @@ char**	find_e_p(t_info *info)
 	return (tmp);
 }
 
-int dfs(int x, int y, t_info *info, char **tmp)
+void dfs(int x, int y, t_info *info, char **tmp)
 {
 	char c;
 
-	if (x == info->player->x_exit && y == info->player->y_exit)
-		return 1;
-	c = info->map->map[x][y];
-	if (c == '1')
-		return 0;
-	if (c == '10')
-		return 0;
-	info->map->map[x][y] = '10';
-	dfs(x, y + 1, info);
-	dfs(x + 1, y, info);
-	dfs(x, y - 1, info);
-	dfs(x - 1, y, info);
+	c = tmp[x][y];
+	if (c == '1' || c == 'V')
+		return ;
+	else
+		tmp[x][y] = 'V';
+	if (y + 1 <= info->map->height - 1)
+		dfs(x, y + 1, info, tmp);
+	if (y - 1 >= 0)
+		dfs(x, y - 1, info, tmp);
+	if (x + 1 <= info->map->width - 1)
+		dfs(x + 1, y, info, tmp);
+	if (x - 1 >= 0)
+		dfs(x - 1, y, info, tmp);
+}
+
+int find_e_c(t_info *info, char **tmp)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	while (x < info->map->height)
+	{
+		y = 0;
+		while (y < info->map->width)
+		{
+			if (tmp[x][y] == 'E' || tmp[x][y] == 'C')
+				return -1;
+			y++;
+		}
+		x++;
+	}
+	return 0;
 }
 
 int	validate_path(t_info *info)
 {
 	char ** tmp;
+	int i;
 	int x;
 	int y;
 
-	x = info->player->x_exit;
-	y = info->player->y_exit;
-	tmp = find_e_p(info);
-	x = dfs(x, y, info, tmp);
-	printf("dfs: %d\n", x);
+	tmp = malloc(sizeof(char *) * (info->map->height + 1));
+	i = 0;
+	while (i < info->map->height)
+	{
+		tmp[i] = malloc(sizeof(char) * (info->map->width + 1));
+		i++;
+	}
+	tmp = copy_map(info, tmp);
+	x = info->player->x_pos;
+	y = info->player->y_pos;
+	dfs(x, y, info, tmp);
+
+	// x = 0;
+	// while (x < info->map->height)
+	// {
+	// 	y = 0;
+	// 	while (y < info->map->width)
+	// 	{
+	// 		printf("%c", tmp[x][y]);
+	// 		if (y == info->map->width - 1)
+	// 			printf("\n");
+	// 		y++;
+	// 	}
+	// 	x++;
+	// }
+
+	if (find_e_c(info, tmp) == -1)
+		put_error_and_exit(3);
+	i = 0;
+	while (i < info->map->height)
+	{
+		free(tmp[i]);
+		i++;
+	}
 	free(tmp);
 	return (0);
 }

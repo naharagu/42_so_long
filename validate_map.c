@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_error.c                                      :+:      :+:    :+:   */
+/*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:36:25 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 17:33:16 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/27 20:29:53 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ int	validate_map(t_info *info)
 	validate_length(info);
 	validate_row_frame(info);
 	validate_side_frame(info);
+	validate_path(info);
 	return (0);
 }
