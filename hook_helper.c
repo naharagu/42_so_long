@@ -25,13 +25,11 @@ void	move_position(t_info *info, int x, int y)
 	info->map->map[info->player->x_pos][info->player->y_pos] = '0';
 	select_image(info, '0');
 	put_image(info, info->player->y_pos, info->player->x_pos);
-	mlx_destroy_image(info->mlx, info->mlx_img);
 	info->player->x_pos += x;
 	info->player->y_pos += y;
 	info->map->map[info->player->x_pos][info->player->y_pos] = 'P';
 	select_image(info, 'P');
 	put_image(info, info->player->y_pos, info->player->x_pos);
-	mlx_destroy_image(info->mlx, info->mlx_img);
 }
 
 // int	can_move(t_info *info, char next_position)
