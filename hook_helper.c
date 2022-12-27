@@ -61,12 +61,12 @@ int	control_player(int key, t_info *info)
 	if (key == ESC)
 		mlx_loop_end(info->mlx);
 	if (key == W || key == UP)
-		move_position(info, 0, -1);
-	else if (key == S || key == DOWN)
-		move_position(info, 0, 1);
-	else if (key == A || key == LEFT)
 		move_position(info, -1, 0);
-	else if (key == D || key == RIGHT)
+	else if (key == S || key == DOWN)
 		move_position(info, 1, 0);
+	else if (key == A || key == LEFT)
+		move_position(info, 0, -1);
+	else if (key == D || key == RIGHT)
+		move_position(info, 0, 1);
 	return (0);
 }
