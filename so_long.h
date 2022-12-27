@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 22:39:02 by naharagu          #+#    #+#             */
-/*   Updated: 2022/11/15 23:47:03 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/26 17:14:30 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SO_LONG_H
 
 # include "libft/libft.h"
+# include "libft/ft_printf.h"
 # include "get_next_line/get_next_line_bonus.h"
 # include "minilibx-linux/mlx.h"
 # include <stdio.h>

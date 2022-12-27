@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 14:06:42 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/26 16:18:12 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/27 11:28:05 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	get_image(t_info *info)
 	size_t	x;
 	size_t	y;
 
-	printf("height is %d, width is %d\n", info->map->height , info->map->width);
+	// printf("height is %d, width is %d\n", info->map->height , info->map->width);
 
 	x = 0;
 	while (x < info->map->height)
@@ -53,14 +53,15 @@ int	get_image(t_info *info)
 		// while (y < 4)
 		{
 			// printf("now: %c\n", info->map->map[x][y]);
-			printf("x is %d, y is %d\n", x , y);
+			// printf("x is %d, y is %d\n", x , y);
 			select_image(info, info->map->map[x][y]);
 			put_image(info, y, x);
 			mlx_destroy_image(info->mlx, info->mlx_img);
 			if (info->map->map[x][y] == 'P')
 			{
-				info->player->x_exit = y;
-				info->player->y_exit = x;
+				info->player->x_pos = x;
+				// printf("xposis %d, ypos is %d\n", x , y);
+				info->player->y_pos = y;
 			}
 			y++;
 		}
