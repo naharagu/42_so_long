@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 14:06:42 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 11:28:05 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/27 12:05:25 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	put_image(t_info *info, size_t x, size_t y)
 	// printf("put image done\n");
 }
 
-int	get_image(t_info *info)
+int	print_map(t_info *info)
 {
 	size_t	x;
 	size_t	y;

@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 22:39:02 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/26 17:14:30 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/27 12:05:28 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,15 @@ typedef struct s_info
 	void 	*mlx_img;
 }				t_info;
 
+t_info *init_info(t_info *info);
 int	control_player(int key, t_info *info);
 void	put_error_and_exit(int error_num);
 void	convert_map(t_info *info, char *file_path);
 void	select_image(t_info *info, char c);
-int	get_image(t_info *info);
+int	print_map(t_info *info);
 void	put_image(t_info *info, size_t x, size_t y);
 int	validate_map(t_info *info);
 int	validate_map_element(char *str);
+void	free_all(t_info *info, size_t i);
 
 #endif

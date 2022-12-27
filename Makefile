@@ -5,6 +5,7 @@ MLX_DIR		= ./minilibx-linux
 LIB_DIR		= ./libft
 GNL_DIR		= ./get_next_line
 SRCS		= 	main.c \
+				init.c \
 				check_error.c \
 				hook_helper.c \
 				convert_map.c \
