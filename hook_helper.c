@@ -12,12 +12,11 @@
 
 #include "so_long.h"
 
-void	update_position(t_info *info, size_t x, size_t y)
+void	move_position(t_info *info, int x, int y)
 {
-	printf("update: x is %zu, y is %zu\n", x, y);
+	printf("move: x is %d, y is %d\n", x, y);
 	if (x == info->player->x_pos && y == info->player->y_pos)
 		return ;
-	printf("test2\n");
 	select_image(info, 'P');
 	put_image(info, info->player->x_pos, info->player->y_pos);
 	mlx_destroy_image(info->mlx, info->mlx_img);
@@ -32,7 +31,7 @@ void	update_position(t_info *info, size_t x, size_t y)
 
 int	can_move(t_info *info, char next_position)
 {
-	printf("canmove: x is %zu, y is %zu\n", info->player->x_pos, info->player->y_pos);
+	printf("canmove: x is %d, y is %d\n", info->player->x_pos, info->player->y_pos);
 	if (next_position == 'E')
 	{
 		if (info->map->cnt_collect == 0)
@@ -42,7 +41,8 @@ int	can_move(t_info *info, char next_position)
 	if (next_position != '1')
 	{
 		info->cnt_move++;
-		ft_printf("move count: %zu\n", info->cnt_move);
+		ft_putnbr_fd(info->cnt_move, 1);
+		ft_putchar_fd('\n', 1);
 		return (1);
 	}
 	return (0);
@@ -71,7 +71,7 @@ int	control_player(int key, t_info *info)
 	else
 		return (0);
 	if (can_move(info, info->map->map[info->player->x_pos][info->player->y_pos]))
-		update_position(info, x_tmp, y_tmp);
+		move_position(info, x_tmp, y_tmp);
 	else
 	{
 		printf("set x t0 %d, y to %d\n", x_tmp, y_tmp);
