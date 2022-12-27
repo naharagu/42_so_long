@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 22:39:02 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 15:24:55 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/27 15:40:31 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@
 # define A 97
 # define D 100
 # define ESC 65307
+# define UP 65362
+# define DOWN 65364
+# define LEFT 65361
+# define RIGHT 65363
 
 typedef struct s_map
 {

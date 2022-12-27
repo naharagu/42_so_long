@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 14:06:42 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 15:25:12 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/27 16:21:09 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ int	print_map(t_info *info)
 			mlx_destroy_image(info->mlx, info->mlx_img);
 			if (info->map->map[x][y] == 'P')
 			{
-				info->player->x_pos = y;
+				info->player->x_pos = x;
 				// printf("xposis %d, ypos is %d\n", x , y);
-				info->player->y_pos = x;
+				info->player->y_pos = y;
 			}
 			y++;
 		}
