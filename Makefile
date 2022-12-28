@@ -1,6 +1,6 @@
 CC			=	gcc
 C_FLAGS 	=	-Wall -Werror -Wextra -g -fsanitize=address
-MLX_DIR		= 	./minilibx-linux
+MLX_DIR		= 	./minilibx
 LIB_DIR		= 	./libft
 GNL_DIR		= 	./get_next_line
 SRCS		= 	main.c \
@@ -20,9 +20,9 @@ GNL			=	./get_next_line/get_next_line.a
 os = $(shell uname)
 
 ifeq ($(os), Darwin)
-	MLX_FLAGS = minilibx-linux/libmlx.a -L/usr/X11R6/lib -lX11 -lXext #-fsanitize=address
+	MLX_FLAGS = minilibx/libmlx.a -L/usr/X11R6/lib -lX11 -lXext #-fsanitize=address
 else
-	MLX_FLAGS = minilibx-linux/libmlx.a -lXext -lX11 -lm
+	MLX_FLAGS = minilibx/libmlx.a -lXext -lX11 -lm
 endif
 
 $(NAME): $(OBJS)
