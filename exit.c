@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:06:57 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/29 00:01:41 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/29 00:07:14 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	free_all(t_info *info)
 		free(info->map->map[i]);
 		i++;
 	}
+	free(info->map->map);
 	free(info->map);
 	free(info->player);
 	free(info->img_path);
