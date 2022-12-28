@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:36:25 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/28 21:53:53 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/28 22:05:31 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ char	**copy_map(t_info *info, char **tmp)
 		while (y < info->map->width)
 		{
 			tmp[x][y] = info->map->map[x][y];
-			// printf("x %d y %d is %c\n", x, y, tmp[x][y]);
 			if (info->map->map[x][y] == 'P')
 			{
 				info->player->x_pos = x;
@@ -48,13 +47,12 @@ void	dfs(int x, int y, t_info *info, char **tmp)
 
 	if (x < 1 || x > info->map->height - 2 || \
 		y < 1 || y > info->map->width - 2)
-		return;
+		return ;
 	c = tmp[x][y];
 	if (c == '1' || c == 'V')
 		return ;
 	else if (c == '0' || c == 'C' || c == 'E')
 		tmp[x][y] = 'V';
-	// printf("x %d y %d is %c\n", x, y, c);
 	dfs(x, y + 1, info, tmp);
 	dfs(x, y - 1, info, tmp);
 	dfs(x + 1, y, info, tmp);
@@ -85,43 +83,24 @@ int	validate_path(t_info *info)
 {
 	char	**tmp;
 	int		i;
-	int		x;
-	int		y;
 
 	tmp = malloc(sizeof(char *) * (info->map->height + 1));
-	i = 0;
-	while (i < info->map->height)
+	if (!tmp)
+		exit(0);
+	i = -1;
+	while (++i < info->map->height)
 	{
 		tmp[i] = malloc(sizeof(char) * (info->map->width + 1));
-		i++;
+		if (!tmp[i])
+			exit(0);
 	}
 	tmp = copy_map(info, tmp);
-	x = info->player->x_pos;
-	y = info->player->y_pos;
-	dfs(x, y, info, tmp);
-
-	// x = 0;
-	// while (x < info->map->height)
-	// {
-	// 	y = 0;
-	// 	while (y < info->map->width)
-	// 	{
-	// 		printf("%c", tmp[x][y]);
-	// 		if (y == info->map->width - 1)
-	// 			printf("\n");
-	// 		y++;
-	// 	}
-	// 	x++;
-	// }
-
+	dfs(info->player->x_pos, info->player->y_pos, info, tmp);
 	if (find_e_c(info, tmp) == -1)
 		put_error_and_exit(3);
-	i = 0;
-	while (i < info->map->height)
-	{
+	i = -1;
+	while (++i < info->map->height)
 		free(tmp[i]);
-		i++;
-	}
 	free(tmp);
 	return (0);
 }

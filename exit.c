@@ -31,7 +31,7 @@ void	put_error_and_exit(int error_num)
 
 void	free_all(t_info *info)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (info->map->map[i])
