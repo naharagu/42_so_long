@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 04:57:28 by naharagu          #+#    #+#             */
-/*   Updated: 2022/07/24 09:21:00 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/28 23:52:58 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 # endif
 
 char	*get_next_line(int fd);
-char	*ft_strchr(const char *s, int c);
-size_t	ft_strlen(const char *s);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strdup(const char *s1);
+char	*gnl_strchr(const char *s, int c);
+size_t	gnl_strlen(const char *s);
+size_t	gnl_strlcpy(char *dst, const char *src, size_t dstsize);
+char	*gnl_strjoin(char const *s1, char const *s2);
+char	*gnl_strdup(const char *s1);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:06:01 by naharagu          #+#    #+#             */
-/*   Updated: 2022/07/24 09:20:22 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/28 23:53:32 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*gnl_strchr(const char *s, int c)
 {
 	char	*dst;
 
@@ -28,7 +28,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	gnl_strlen(const char *s)
 {
 	size_t	i;
 
@@ -38,7 +38,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	gnl_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 
@@ -57,7 +57,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*gnl_strjoin(char const *s1, char const *s2)
 {
 	char	*res;
 	size_t	i;
@@ -65,25 +65,25 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 | !s2)
 		return (NULL);
-	i = ft_strlen(s1);
-	j = ft_strlen(s2);
+	i = gnl_strlen(s1);
+	j = gnl_strlen(s2);
 	res = malloc((i + j + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
-	ft_strlcpy(res, s1, i + 1);
-	ft_strlcpy(res + i, s2, j + 1);
+	gnl_strlcpy(res, s1, i + 1);
+	gnl_strlcpy(res + i, s2, j + 1);
 	return (res);
 }
 
-char	*ft_strdup(const char *s1)
+char	*gnl_strdup(const char *s1)
 {
 	size_t	len;
 	char	*dest;
 
-	len = ft_strlen(s1);
+	len = gnl_strlen(s1);
 	dest = malloc((len + 1) * sizeof(char));
 	if (!dest)
 		return (NULL);
-	ft_strlcpy(dest, s1, len + 1);
+	gnl_strlcpy(dest, s1, len + 1);
 	return (dest);
 }

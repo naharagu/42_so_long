@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 21:18:48 by naharagu          #+#    #+#             */
-/*   Updated: 2022/07/24 09:20:04 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/28 23:53:50 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,19 @@ char	*read_fd(int fd, char *input)
 	ssize_t	count;
 
 	if (!input)
-		input = ft_strdup("");
+		input = gnl_strdup("");
 	buf = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!input || !buf)
 		return (safe_free(buf, input));
 	count = 1;
-	while (count && !ft_strchr(input, '\n'))
+	while (count && !gnl_strchr(input, '\n'))
 	{
 		count = read(fd, buf, BUFFER_SIZE);
 		if (count == -1 || (!count && input[0] == '\0'))
 			return (safe_free(buf, input));
 		buf[count] = '\0';
 		tmp = input;
-		input = ft_strjoin(tmp, buf);
+		input = gnl_strjoin(tmp, buf);
 		safe_free(NULL, tmp);
 	}
 	safe_free(buf, NULL);
@@ -58,7 +58,7 @@ char	*get_one_line(char *input)
 	char	*output;
 	size_t	i;
 
-	output = malloc((ft_strlen(input) + 1) * sizeof(char));
+	output = malloc((gnl_strlen(input) + 1) * sizeof(char));
 	if (!output)
 		return (NULL);
 	i = 0;
@@ -82,17 +82,17 @@ char	*split_input(char *input)
 		i++;
 	if (!input[i])
 		return (safe_free(NULL, input));
-	new_input = ft_strdup(&input[++i]);
+	new_input = gnl_strdup(&input[++i]);
 	safe_free(NULL, input);
 	return (new_input);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*input[OPEN_MAX];
+	static char	*input[10000];
 	char		*output;
 
-	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > 10000 || BUFFER_SIZE <= 0)
 		return (NULL);
 	input[fd] = read_fd(fd, input[fd]);
 	if (!input[fd])
