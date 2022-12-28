@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:57:33 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 20:50:46 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:46:21 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,5 @@ void	convert_map(t_info *info, char *file_path)
 	count_element(info, str);
 	ret = ft_split(str, '\n');
 	info->map->map = ret;
-	// printf("C: %d, E: %d, P: %d\n", info->map->cnt_collect, info->map->cnt_exit, info->map->cnt_player);
 	free(str);
 }

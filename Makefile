@@ -11,10 +11,11 @@ SRCS		= 	main.c \
 				image.c \
 				control_player.c \
 				exit.c
-
-NAME	=	so_long
-
-OBJS	=	${SRCS:%.c=%.o}
+NAME		=	so_long
+OBJS_DIR	=	./obj/
+OBJS		=	$(SRCS:%.c=$(OBJS_DIR)%.o)
+LIB			=	./libft/libft.a
+GNL			=	./get_next_line/get_next_line.a
 
 os = $(shell uname)
 
@@ -23,14 +24,16 @@ ifeq ($(os), Darwin)
 else
 	MLX_FLAGS = minilibx-linux/libmlx.a -lXext -lX11 -lm
 endif
-LIB		= ./libft/libft.a
-GNL	= ./get_next_line/get_next_line.a
 
 $(NAME): $(OBJS)
 	make -C $(MLX_DIR)
 	make -C $(LIB_DIR)
 	make -C $(GNL_DIR)
 	$(CC) $(C_FLAGS) $(OBJS) -o $(NAME) $(MLX_FLAGS) $(LIB) $(GNL)
+
+$(OBJS_DIR)%.o: %.c
+		mkdir -p $(OBJS_DIR)
+		$(CC) $(CFLAGS) -o $@ -c $<
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 22:39:02 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 18:46:36 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:46:10 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 typedef struct s_map
 {
 	char		**map;
+	char		**map_check;
 	int			cnt_collect;
 	int			cnt_player;
 	int			cnt_exit;
