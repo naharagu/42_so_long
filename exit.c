@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:06:57 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/29 00:07:14 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/29 00:09:52 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void	put_error_and_exit(int error_num)
 {
 	if (error_num == 1)
-		ft_putstr_fd("so_long needs 2 argments", 2);
+		ft_putstr_fd("so_long needs 2 argments\n", 2);
 	else if (error_num == 2)
-		ft_putstr_fd("invalid file path", 2);
+		ft_putstr_fd("invalid file path\n", 2);
 	else if (error_num == 3)
-		ft_putstr_fd("invalid map", 2);
+		ft_putstr_fd("invalid map\n", 2);
 	else if (error_num == 4)
-		ft_putstr_fd("image failed", 2);
+		ft_putstr_fd("image failed\n", 2);
 	else if (error_num == 5)
-		ft_putstr_fd("cannot open file", 2);
+		ft_putstr_fd("cannot open file\n", 2);
 	else if (error_num == 9)
-		ft_putstr_fd("malloc failed", 2);
+		ft_putstr_fd("malloc failed\n", 2);
 	exit(EXIT_FAILURE);
 }
 
