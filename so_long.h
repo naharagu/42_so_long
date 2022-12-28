@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 22:39:02 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/28 22:29:25 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/28 22:33:12 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "get_next_line/get_next_line_bonus.h"
 # include "libft/ft_printf.h"
 # include "libft/libft.h"
-# include "minilibx-linux/mlx.h"
+# include "minilibx/mlx.h"
 # include <fcntl.h>
 # include <stdio.h>
 
