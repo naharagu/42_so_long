@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:06:57 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 19:14:33 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/29 00:01:41 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,5 @@ void	free_all(t_info *info)
 	mlx_destroy_window(info->mlx, info->mlx_win);
 	mlx_destroy_display(info->mlx);
 	free(info->mlx);
+	free(info);
 }
