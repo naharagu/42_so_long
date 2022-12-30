@@ -6,11 +6,23 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:57:33 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/28 21:46:21 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/30 18:38:37 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	check_filename(char *file_path)
+{
+	size_t	len;
+
+	len = ft_strlen(file_path);
+	if (len <= 4)
+		return (-1);
+	if (ft_strncmp(file_path + len - 4, ".ber", 4))
+		return (-1);
+	return (0);
+}
 
 void	validate_map_element(char *str)
 {
@@ -61,7 +73,7 @@ char	*get_line_in_map(t_info *info, char *file_path)
 		if (!line)
 			break ;
 		if (line[0] != '1')
-			put_error_and_exit(6);
+			put_error_and_exit(3);
 		validate_map_element(line);
 		tmp = str;
 		str = ft_strjoin(str, line);
@@ -77,6 +89,8 @@ void	convert_map(t_info *info, char *file_path)
 	char	*str;
 	char	**ret;
 
+	if (check_filename(file_path) == -1)
+		put_error_and_exit(2);
 	str = get_line_in_map(info, file_path);
 	count_element(info, str);
 	ret = ft_split(str, '\n');
