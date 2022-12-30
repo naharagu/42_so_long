@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 22:39:02 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/30 16:49:49 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/30 18:10:46 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-# define E_KEY_PRESS 2
-# define E_WIN_RESIZE 9
-# define E_WIN_CLOSE 17
+# define WIN_RESIZE 9
+# define WIN_CLOSE 17
 
 # define IMAGE_SIZE 32
 
@@ -73,6 +72,7 @@ int				print_map(t_info *info);
 void			put_image(t_info *info, int x, int y);
 int				validate_map(t_info *info);
 int				validate_path(t_info *info);
+void			close_window(t_info *info);
 void			free_all(t_info *info);
 
 #endif

@@ -1,2 +1,0 @@
-gcc main.c -L/usr/X11/lib -lmlx -lXext -lX11
-valgrind --leak-check=full ./so_long map/big.ber

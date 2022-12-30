@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:06:57 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/30 16:50:04 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/30 18:14:59 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@ void	put_error_and_exit(int error_num)
 	else if (error_num == 9)
 		ft_putstr_fd("malloc failed\n", 2);
 	exit(EXIT_FAILURE);
+}
+
+void	close_window(t_info *info)
+{
+	mlx_loop_end(info->mlx);
+	free_all(info);
+	exit(EXIT_SUCCESS);
 }
 
 void	free_all(t_info *info)

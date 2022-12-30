@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 20:33:38 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/28 22:06:09 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/30 18:20:43 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ void	so_long(t_info *info)
 			info->map->height * IMAGE_SIZE, "so_long");
 	print_map(info);
 	mlx_key_hook(info->mlx_win, control_player, info);
+	mlx_hook(info->mlx_win, WIN_CLOSE, 1L << 2, close_window, info);
+	mlx_hook(info->mlx_win, WIN_RESIZE, 1L << 2, print_map, info);
+	mlx_expose_hook(info->mlx_win, print_map, info);
 	mlx_loop(info->mlx);
 	free_all(info);
 }
