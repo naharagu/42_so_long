@@ -1,5 +1,6 @@
 CC			=	gcc
-C_FLAGS 	=	-Wall -Werror -Wextra -g -fsanitize=address
+# C_FLAGS 	=	-Wall -Werror -Wextra -g -fsanitize=address
+C_FLAGS 	=	-Wall -Werror -Wextra
 MLX_DIR		= 	./minilibx
 LIB_DIR		= 	./libft
 GNL_DIR		= 	./get_next_line

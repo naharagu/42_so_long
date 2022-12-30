@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:06:57 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/29 00:09:52 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/30 16:50:04 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	free_all(t_info *info)
 	free(info->map->map);
 	free(info->map);
 	free(info->player);
-	free(info->img_path);
 	mlx_clear_window(info->mlx, info->mlx_win);
 	mlx_destroy_window(info->mlx, info->mlx_win);
 	mlx_destroy_display(info->mlx);

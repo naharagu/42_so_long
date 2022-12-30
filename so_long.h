@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 22:39:02 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/28 23:08:17 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/30 16:49:49 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ typedef struct s_info
 	size_t		cnt_move;
 	t_player	*player;
 	t_map		*map;
-	char		**img_path;
 	void		*mlx_img;
 }				t_info;
 

@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 14:06:42 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 17:16:21 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/30 16:50:10 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,21 @@
 
 void	select_image(t_info *info, char c)
 {
-	int	height;
-	int	width;
+	int		height;
+	int		width;
+	char	*img_path;
 
-	info->mlx_img = mlx_xpm_file_to_image(info->mlx, info->img_path[c], &height,
-			&width);
+	if (c == '1')
+		img_path = "./assets/wall.xpm";
+	else if (c == '0')
+		img_path = "./assets/floor.xpm";
+	else if (c == 'P')
+		img_path = "./assets/player.xpm";
+	else if (c == 'E')
+		img_path = "./assets/exit.xpm";
+	else if (c == 'C')
+		img_path = "./assets/collect.xpm";
+	info->mlx_img = mlx_xpm_file_to_image(info->mlx, img_path, &height, &width);
 	if (info->mlx_img == NULL)
 		put_error_and_exit(4);
 }
