@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:03:29 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/30 16:49:59 by naharagu         ###   ########.fr       */
+/*   Updated: 2022/12/31 17:13:40 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 t_info	*init_info(t_info *info)
 {
 	info = malloc(sizeof(t_info));
+	if (!info)
+		put_error_and_exit(9);
 	info->map = malloc(sizeof(t_map));
+	if (!info->map)
+		put_error_and_exit(9);
 	info->player = malloc(sizeof(t_player));
-	if (!info || !info->map || !info->player)
+	if (!info->player)
 		put_error_and_exit(9);
 	info->cnt_move = 0;
 	info->player->x_pos = 0;
