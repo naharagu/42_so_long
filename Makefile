@@ -20,7 +20,7 @@ GNL			=	./get_next_line/get_next_line.a
 UNAME = $(shell uname)
 
 ifeq ($(UNAME), Darwin)
-	MLX_FLAGS = minilibx/libmlx.a -L/usr/X11R6/lib -lX11 -lXext #-fsanitize=address
+	MLX_FLAGS = minilibx/libmlx.a -L/usr/X11R6/lib -lX11 -lXext
 else
 	MLX_FLAGS = minilibx/libmlx.a -lXext -lX11 -lm
 endif
