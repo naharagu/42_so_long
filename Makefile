@@ -33,7 +33,7 @@ $(NAME): $(OBJS)
 
 $(OBJS_DIR)%.o: %.c
 		mkdir -p $(OBJS_DIR)
-		$(CC) $(CFLAGS) -o $@ -c $<
+		$(CC) $(C_FLAGS) -o $@ -c $<
 
 all: $(NAME)
 
