@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:36:25 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/27 20:29:53 by naharagu         ###   ########.fr       */
+/*   Updated: 2023/01/19 21:29:26 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ int	validate_side_frame(t_info *info)
 
 int	validate_length(t_info *info)
 {
-	int	i;
-	int	len;
+	int		i;
+	size_t	len;
 
 	i = 0;
 	len = ft_strlen(info->map->map[i]);

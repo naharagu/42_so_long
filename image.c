@@ -6,7 +6,7 @@
 /*   By: naharagu <naharagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 14:06:42 by naharagu          #+#    #+#             */
-/*   Updated: 2022/12/30 16:50:10 by naharagu         ###   ########.fr       */
+/*   Updated: 2023/01/19 21:30:14 by naharagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	select_image(t_info *info, char c)
 		img_path = "./assets/player.xpm";
 	else if (c == 'E')
 		img_path = "./assets/exit.xpm";
-	else if (c == 'C')
+	else
 		img_path = "./assets/collect.xpm";
 	info->mlx_img = mlx_xpm_file_to_image(info->mlx, img_path, &height, &width);
 	if (info->mlx_img == NULL)
